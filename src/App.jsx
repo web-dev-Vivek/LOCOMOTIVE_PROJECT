@@ -1,7 +1,13 @@
+// App.js
 import React from "react";
+import EventsList from "./Pages/EventsList";
 
 function App() {
-  return <div className="w-[10vw] h-[10vh] bg-red-600"></div>;
+  return (
+    <div className="App">
+      <EventsList />
+    </div>
+  );
 }
 
 export default App;
