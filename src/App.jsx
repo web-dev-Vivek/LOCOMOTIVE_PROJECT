@@ -8,7 +8,7 @@ function App() {
   const [showIntro, setShowIntro] = useState(true);
 
   return (
-    <div className="relative">
+    <div className="relative ">
       {showIntro && (
         <IntroScreen onAnimationComplete={() => setShowIntro(false)} />
       )}

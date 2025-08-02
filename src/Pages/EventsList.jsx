@@ -1,68 +1,161 @@
-// src/pages/EventsList.jsx
+import Navbar from "../component/Nabvar.jsx";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import Footer from "../component/Footer.jsx";
 
-import React, { useEffect, useRef } from "react";
-import LocomotiveScroll from "locomotive-scroll";
-import "locomotive-scroll/dist/locomotive-scroll.css";
-
-import events from "../data/eventsData";
-import EventCard from "../component/EventCard";
+gsap.registerPlugin(ScrollTrigger);
 
 const EventsList = () => {
-  const scrollRef = useRef(null);
-  const locoScrollRef = useRef(null); // To store scroll instance
+  const section2Ref = useRef(null); // IN EVENTS
+  const section3Ref = useRef(null); // CONNECTIONS
+  const section4Ref = useRef(null); // COLLABORATIONS
+  const section5Ref = useRef(null); // SHOWING UP
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      locoScrollRef.current = new LocomotiveScroll({
-        el: scrollRef.current,
-        smooth: true,
-        lerp: 0.07,
-      });
-    }, 100);
+    // Set initial positions
+    gsap.set(section2Ref.current, { x: 0, y: 0 });
+    gsap.set(section3Ref.current, { x: 0, y: 0 });
 
-    return () => {
-      clearTimeout(timeout);
-      if (locoScrollRef.current) locoScrollRef.current.destroy();
-    };
+    // Section 2 Animation
+    gsap.to(section2Ref.current, {
+      scrollTrigger: {
+        trigger: section2Ref.current,
+        start: "top 80%",
+        end: "top 10%",
+        scrub: 2,
+      },
+      x: 680,
+      y: 250,
+      ease: "power1.out",
+    });
+
+    // Section 3 Animation (Trigger after section2 animation completes)
+    gsap.to(section3Ref.current, {
+      scrollTrigger: {
+        trigger: section3Ref.current,
+        start: "top 40%",
+        end: "top 0%",
+        scrub: 2,
+        markers: true,
+      },
+      x: -380,
+      y: 250,
+      ease: "power1.out",
+    });
+
+    gsap.to(section4Ref.current, {
+      scrollTrigger: {
+        trigger: section4Ref.current,
+        start: "top 40%",
+        end: "top 0%",
+        scrub: 2,
+      },
+      x: 180,
+      y: 500,
+      ease: "power1.out",
+    });
+    gsap.to(section5Ref.current, {
+      scrollTrigger: {
+        trigger: section5Ref.current,
+        start: "top 40%",
+        end: "top 0%",
+        scrub: 2,
+      },
+      x: -500,
+      y: 500,
+      ease: "power1.out",
+    });
   }, []);
 
   return (
-    <div
-      ref={scrollRef}
-      data-scroll-container
-      data-scroll
-      data-scroll-speed="-5"
-      className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-10 px-4"
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h1
-            className="text-4xl md:text-5xl font-bold mb-4 text-gray-900"
-            data-scroll
-            data-scroll-speed="1"
-          >
-            🚀 Upcoming Hackathons & Events
-          </h1>
-          <p
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
-            data-scroll
-            data-scroll-speed="0.5"
-          >
-            Discover amazing opportunities to showcase your skills, learn new
-            technologies, and win exciting prizes
-          </p>
-        </div>
+    <div>
+      <Navbar />
 
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-          data-scroll
-          data-scroll-speed="0.3"
+      {/* Section 1 */}
+      <div className="w-[100vw] pl-10 flex justify-end flex-col h-[100vh]">
+        <p className="text-sm" style={{ fontFamily: "'Oswald', sans-serif" }}>
+          Make Memories, Make future
+        </p>
+        <h1
+          style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          className="text-9xl font-bold"
         >
-          {events.map((event) => (
-            <EventCard key={event.id} {...event} />
-          ))}
-        </div>
+          PARTICIPATE
+        </h1>
+        <h1
+          ref={section2Ref}
+          className="text-9xl font-bold w-fit whitespace-normal relative"
+          style={{ fontFamily: "'Cormorant Garamond', serif" }}
+        >
+          IN EVENTS
+        </h1>
       </div>
+
+      {/* Section 2 */}
+      <div className="w-[100vw] overflow-hidden flex justify-center items-end pr-10 flex-col h-[100vh]">
+        <h1
+          className="font-bold text-sm"
+          style={{ fontFamily: "'Limelight', display" }}
+        >
+          BUILD
+        </h1>
+        <h1
+          ref={section3Ref}
+          className="text-9xl font-bold  w-fit whitespace-normal relative"
+          style={{ fontFamily: "'Cormorant Garamond', serif" }}
+        >
+          CONNECTIONS
+        </h1>
+      </div>
+
+      {/* Section 3 */}
+      <div className="w-[100vw] h-screen pl-10 flex-col ">
+        <p className="text-sm" style={{ fontFamily: "'Limelight', display" }}>
+          TURN INTO
+        </p>
+        <h1
+          ref={section4Ref}
+          className="text-9xl font-bold  w-fit whitespace-normal relative"
+          style={{ fontFamily: "'Cormorant Garamond', serif" }}
+        >
+          COLLABORATIONS
+        </h1>
+      </div>
+
+      {/* Section 4 */}
+      <div className="w-[100vw] pl-10 flex justify-start items-end pr-5 flex-col h-[100vh] ">
+        <p
+          className="font-bold text-sm"
+          style={{ fontFamily: "'Limelight', display" }}
+        >
+          ignite
+        </p>
+        <h1
+          ref={section5Ref}
+          className="text-9xl font-bold  w-fit whitespace-normal relative"
+          style={{ fontFamily: "'Cormorant Garamond', serif" }}
+        >
+          INNOVATION
+        </h1>
+      </div>
+
+      {/* Section 5 */}
+      <div className="w-[100vw] h-screen pl-10 flex justify-start flex-col ">
+        <p
+          className="font-bold text-sm"
+          style={{ fontFamily: "'Limelight', display" }}
+        >
+          begins with
+        </p>
+        <h1
+          className="text-9xl font-bold"
+          style={{ fontFamily: "'Cormorant Garamond', serif" }}
+        >
+          SHOWING UP
+        </h1>
+      </div>
+      <Footer />
     </div>
   );
 };

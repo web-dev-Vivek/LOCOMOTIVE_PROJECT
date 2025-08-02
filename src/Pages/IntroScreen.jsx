@@ -20,18 +20,18 @@ const IntroScreen = ({ onAnimationComplete }) => {
     tl.fromTo(
       titleRef.current,
       { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
+      { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }
     )
       .fromTo(
         subtitleRef.current,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+        { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
         "-=0.5"
       )
-      .to({}, { duration: 1.5 }) // Wait for 1.5 seconds
+      .to({}, { duration: 0.5 }) // Wait for 1.5 seconds
       .to(introRef.current, {
         y: "-100%",
-        duration: 1.2,
+        duration: 0.2,
         ease: "power2.inOut",
       });
   }, [onAnimationComplete]);
