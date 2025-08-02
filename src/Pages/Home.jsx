@@ -1,4 +1,4 @@
-import Navbar from "../component/Nabvar.jsx";
+import Navbar from "../component/Navbar.jsx";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -6,7 +6,7 @@ import Footer from "../component/Footer.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const EventsList = () => {
+const Home = () => {
   const section2Ref = useRef(null); // IN EVENTS
   const section3Ref = useRef(null); // CONNECTIONS
   const section4Ref = useRef(null); // COLLABORATIONS
@@ -37,7 +37,6 @@ const EventsList = () => {
         start: "top 40%",
         end: "top 0%",
         scrub: 2,
-        markers: true,
       },
       x: -380,
       y: 250,
@@ -160,4 +159,4 @@ const EventsList = () => {
   );
 };
 
-export default EventsList;
+export default Home;
