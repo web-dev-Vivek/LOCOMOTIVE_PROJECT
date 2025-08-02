@@ -12,33 +12,35 @@ const EventCard = ({
   isVerified,
 }) => {
   return (
-    <div className="w-[280px] mb-[5vh] rounded-3xl overflow-hidden shadow-md relative bg-white">
+    <div className="relative w-full rounded-2xl overflow-hidden shadow-md group">
       {/* Event Image */}
       <img
-        src="https://i.pinimg.com/736x/47/8c/66/478c66992d2f6d384fdf13529ecd0c75.jpg"
+        src={imageUrl}
         alt={title}
-        className="w-full h-96 object-cover"
+        className="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105"
       />
 
-      {/* Bottom Overlay that blends */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white/90 via-white/60 to-transparent px-4 py-3">
-        <div className="flex items-center gap-2 font-semibold text-gray-900">
-          {title}
-          {isVerified && <span className="text-green-500 text-sm">✔️</span>}
+      {/* Bottom Overlay with White Blend */}
+      <div className="absolute bottom-0 left-0 right-0 px-5 py-4 bg-white/70 backdrop-blur-sm backdrop-saturate-150">
+        <div className="flex items-center justify-between mb-1">
+          <h3 className="text-base font-semibold text-gray-900 flex items-center gap-1">
+            {title}
+            {isVerified && <span className="text-green-500 text-sm">✔️</span>}
+          </h3>
         </div>
 
-        <p className="text-sm text-gray-700">{organizer}</p>
+        <p className="text-xs text-gray-700 mb-2">{organizer}</p>
 
-        <div className="flex justify-between items-center mt-3">
-          <div className="flex gap-4 text-sm text-gray-700">
-            <span>📅 {date}</span>
+        <div className="flex justify-between items-center text-sm text-gray-800">
+          <div className="flex gap-3 text-sm">
+            <span>📅 {new Date(date).toLocaleDateString("en-GB")}</span>
             <span>🏆 {prize}</span>
           </div>
           <a
             href={registerLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-1 bg-white text-gray-800 text-sm rounded-full shadow hover:bg-gray-100 transition"
+            className="bg-white text-blue-600 border border-blue-600 px-3 py-1 rounded-full text-xs font-medium hover:bg-blue-600 hover:text-white transition"
           >
             Register →
           </a>

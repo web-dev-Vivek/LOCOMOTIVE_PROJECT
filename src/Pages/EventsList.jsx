@@ -18,7 +18,7 @@ const EventsList = () => {
         smooth: true,
         lerp: 0.07,
       });
-    }, 100); // 100ms delay to wait for DOM to settle
+    }, 100);
 
     return () => {
       clearTimeout(timeout);
@@ -32,20 +32,36 @@ const EventsList = () => {
       data-scroll-container
       data-scroll
       data-scroll-speed="-5"
-      className="min-h-screen bg-gray-100 py-10 px-4"
+      className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-10 px-4"
     >
-      <div className="max-w-4xl mx-auto">
-        <h1
-          className="text-3xl font-bold mb-8 text-center"
-          data-scroll
-          data-scroll-speed="1"
-        >
-          🚀 Upcoming Hackathons & Events
-        </h1>
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1
+            className="text-4xl md:text-5xl font-bold mb-4 text-gray-900"
+            data-scroll
+            data-scroll-speed="1"
+          >
+            🚀 Upcoming Hackathons & Events
+          </h1>
+          <p
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            data-scroll
+            data-scroll-speed="0.5"
+          >
+            Discover amazing opportunities to showcase your skills, learn new
+            technologies, and win exciting prizes
+          </p>
+        </div>
 
-        {events.map((event) => (
-          <EventCard key={event.id} {...event} />
-        ))}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          data-scroll
+          data-scroll-speed="0.3"
+        >
+          {events.map((event) => (
+            <EventCard key={event.id} {...event} />
+          ))}
+        </div>
       </div>
     </div>
   );
