@@ -1,16 +1,22 @@
-// src/Pages/Events.jsx
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Navbar from "../component/Navbar";
+import Footer from "../component/Footer.jsx";
+import EventCard from "../component/EventCard";
+import eventsData from "../data/eventsData.js";
 import Eventimg from "../assets/Event.jpg";
-import { useRef, useEffect } from "react";
+
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Footer from "../component/Footer.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Events() {
   const MoveRef = useRef(null);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [filteredEvents, setFilteredEvents] = useState(eventsData);
+
+  // Unique categories from data
+  const categories = ["All", ...new Set(eventsData.map((e) => e.category))];
 
   useEffect(() => {
     gsap.to(MoveRef.current, {
@@ -24,15 +30,26 @@ function Events() {
       y: 300,
       ease: "power1.out",
     });
-  }, []); // ✅ Add this
+  }, []);
+
+  useEffect(() => {
+    if (selectedCategory === "All") {
+      setFilteredEvents(eventsData);
+    } else {
+      setFilteredEvents(
+        eventsData.filter((e) => e.category === selectedCategory)
+      );
+    }
+  }, [selectedCategory]);
 
   return (
     <>
       <Navbar />
 
+      {/* Hero Section */}
       <div
         id="event"
-        className="min-h-screen flex flex-col px-6 py-10 bg-white"
+        className="min-h-screen mt-5 flex flex-col px-6 py-10 bg-white"
       >
         <h1
           ref={MoveRef}
@@ -41,10 +58,48 @@ function Events() {
         >
           Events
         </h1>
-
-        <img className="w-[40vw] h-[35vw]" src={Eventimg} alt="" />
+        <img className="w-[40vw] h-[35vw]" src={Eventimg} alt="Events Header" />
       </div>
-      <div></div>
+
+      {/* Filter Buttons */}
+      <div className="px-6 pb-4 flex flex-wrap gap-3 justify-center">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setSelectedCategory(cat)}
+            className={`px-4 py-1.5 rounded-full border text-sm font-medium transition-all duration-200 ${
+              selectedCategory === cat
+                ? "bg-black text-white border-black"
+                : "bg-white text-black border-gray-300 hover:bg-gray-400 hover:text-white hover:border-none hover:scale-[1.1]"
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* Event Cards Grid */}
+      <div className="grid md:grid-cols-4 mb-40 gap-10 px-6 py-10">
+        {filteredEvents.length > 0 ? (
+          filteredEvents.map((event) => (
+            <EventCard
+              key={event.id}
+              imageUrl={event.imageUrl}
+              title={event.title}
+              date={event.date}
+              organizer={event.organizer}
+              prize={event.prize}
+              registerLink={event.registerLink}
+              isVerified={event.isVerified}
+            />
+          ))
+        ) : (
+          <p className="text-center col-span-full text-gray-500 text-sm">
+            No events found in this category.
+          </p>
+        )}
+      </div>
+
       <Footer />
     </>
   );
