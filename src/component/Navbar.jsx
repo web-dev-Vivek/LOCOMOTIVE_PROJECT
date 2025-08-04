@@ -46,7 +46,7 @@ const Navbar = () => {
           style={{ fontFamily: "'Mozilla Headline', sans-serif" }}
           to="/cells"
         >
-          Cells
+          Commitee
         </Link>
       </div>
     </div>

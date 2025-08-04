@@ -15,7 +15,6 @@ function Events() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredEvents, setFilteredEvents] = useState(eventsData);
 
-  // Unique categories from data
   const categories = ["All", ...new Set(eventsData.map((e) => e.category))];
 
   useEffect(() => {
