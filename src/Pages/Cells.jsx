@@ -1,7 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer.jsx";
 import Committee from "../assets/Committee.jpg";
+import CommitteeInfo from "../component/CommitteeInfo";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -29,6 +30,7 @@ const Cells = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
 
+      {/* Title + Image Section */}
       <div className="md:w-[100vw] justify-evenly flex md:h-[150vh] pt-30 flex-col md:flex-row">
         {/* Heading */}
         <div
@@ -42,15 +44,15 @@ const Cells = () => {
         {/* Image */}
         <div className="md:w-[47vw] flex justify-center items-end md:h-[125vh] px-4">
           <img
-            className="w-full md:w-full object-cover"
+            className="w-full object-cover"
             src={Committee}
             alt="Committee"
           />
         </div>
       </div>
-      <div className="md:w-[100vw] flex justify-center items-center h-auto">
-        <div className="md:w-[85vw] md:h-[100vh] bg-red-600 border-2 border-black"></div>
-      </div>
+
+      {/* Committee Info Section */}
+      <CommitteeInfo />
 
       <Footer />
     </div>
