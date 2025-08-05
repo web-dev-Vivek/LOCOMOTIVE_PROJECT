@@ -3,12 +3,12 @@ import Navbar from "../component/Navbar";
 
 const Announcement = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white text-black">
       <Navbar />
-      <div className="pt-20 px-10">
-        <h1 className="text-6xl font-bold text-black">Announcements</h1>
-        <p className="mt-4 text-lg text-gray-600">
-          Latest announcements and updates...
+      <div className="md:w-[100vw] md:h-[100vh] flex flex-col justify-center items-center text-center px-6 py-20">
+        <h1 className="text-4xl md:text-6xl font-extrabold">Announcements</h1>
+        <p className="mt-4 text-lg text-gray-600 max-w-2xl">
+          Latest announcements and updates will appear here. Stay tuned!
         </p>
       </div>
     </div>

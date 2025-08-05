@@ -15,7 +15,6 @@ const CommitteeInfo = () => {
         end: " top 20%",
         toggleActions: "play none none none",
         scrub: 3,
-        markers: true,
       },
       x: 100, // animate from right
       opacity: 0,
@@ -33,7 +32,7 @@ const CommitteeInfo = () => {
         {/* Section Heading */}
         <div className="space-y-2">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight border-b-2 border-black inline-block pb-1">
-            Internal Complaint Committee
+            1. Internal Complaint Committee
           </h2>
           <p className="italic text-gray-600 text-lg">
             (Prevention of Sexual Harassment - POSH)
