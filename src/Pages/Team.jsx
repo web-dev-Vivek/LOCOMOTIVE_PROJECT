@@ -10,7 +10,7 @@ const Team = () => {
   return (
     <>
       <Navbar />
-      <div className="p-6">
+      <div className="p-6 mt-10">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-4xl font-bold">Meet the Team</h1>
           <button
