@@ -1,7 +1,8 @@
 import Navbar from "../component/Navbar.jsx";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger"; // ✅ fix import
+import Lenis from "@studio-freight/lenis";
 import Footer from "../component/Footer.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,11 +14,27 @@ const Home = () => {
   const section5Ref = useRef(null); // SHOWING UP
 
   useEffect(() => {
-    // Set initial positions
+    // ✅ Initialize Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      smoothWheel: true,
+      smoothTouch: false,
+    });
+
+    // RAF loop for Lenis
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // ✅ Sync Lenis with ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
+
+    // ✅ GSAP Animations
     gsap.set(section2Ref.current, { x: 0, y: 0 });
     gsap.set(section3Ref.current, { x: 0, y: 0 });
 
-    // Section 2 Animation
     gsap.to(section2Ref.current, {
       scrollTrigger: {
         trigger: section2Ref.current,
@@ -30,7 +47,6 @@ const Home = () => {
       ease: "power1.out",
     });
 
-    // Section 3 Animation (Trigger after section2 animation completes)
     gsap.to(section3Ref.current, {
       scrollTrigger: {
         trigger: section3Ref.current,
@@ -54,6 +70,7 @@ const Home = () => {
       y: 500,
       ease: "power1.out",
     });
+
     gsap.to(section5Ref.current, {
       scrollTrigger: {
         trigger: section5Ref.current,
@@ -65,6 +82,12 @@ const Home = () => {
       y: 500,
       ease: "power1.out",
     });
+
+    // cleanup
+    return () => {
+      lenis.destroy();
+      ScrollTrigger.killAll();
+    };
   }, []);
 
   return (
