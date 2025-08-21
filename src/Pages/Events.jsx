@@ -6,7 +6,8 @@ import eventsData from "../data/eventsData.js";
 import Eventimg from "../assets/Event.jpg";
 
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger"; // ✅ Correct import
+import Lenis from "@studio-freight/lenis"; // ✅ Import Lenis
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +19,24 @@ function Events() {
   const categories = ["All", ...new Set(eventsData.map((e) => e.category))];
 
   useEffect(() => {
+    // ✅ Initialize Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      smoothWheel: true,
+      smoothTouch: false,
+    });
+
+    // RAF loop for Lenis
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // ✅ Sync Lenis with ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
+
+    // ✅ GSAP Animation
     gsap.to(MoveRef.current, {
       scrollTrigger: {
         trigger: MoveRef.current,
@@ -29,6 +48,12 @@ function Events() {
       y: 300,
       ease: "power1.out",
     });
+
+    // Cleanup
+    return () => {
+      lenis.destroy();
+      ScrollTrigger.killAll();
+    };
   }, []);
 
   useEffect(() => {
