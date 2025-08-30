@@ -1,32 +1,46 @@
 // src/components/TeamComp.jsx
 import React, { useEffect, useState } from "react";
 
-import { collection, onSnapshot } from "firebase/firestore";
-
 const TeamComp = () => {
   const [members, setMembers] = useState([]);
-  const [loading, setLoading] = useState(true); // Optional: loading state
-  const [error, setError] = useState(null); // Optional: error state
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  // Sample static data to replace Firebase data
+  const sampleMembers = [
+    {
+      id: 1,
+      name: "John Doe",
+      rollno: "2021001",
+      gmail: "john.doe@example.com",
+      whatsapp: "+91-9876543210",
+      skills: ["React", "JavaScript", "Node.js"]
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      rollno: "2021002",
+      gmail: "jane.smith@example.com",
+      whatsapp: "+91-9876543211",
+      skills: ["Python", "Machine Learning", "Data Science"]
+    },
+    {
+      id: 3,
+      name: "Mike Johnson",
+      rollno: "2021003",
+      gmail: "mike.johnson@example.com",
+      whatsapp: "+91-9876543212",
+      skills: ["Java", "Spring Boot", "Microservices"]
+    }
+  ];
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(
-      collection(db, "teamMembers"),
-      (snapshot) => {
-        const data = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setMembers(data);
-        setLoading(false);
-      },
-      (err) => {
-        console.error("Error fetching team members:", err);
-        setError("Failed to load team members.");
-        setLoading(false);
-      }
-    );
-
-    return () => unsubscribe();
+    // Simulate loading data (replace with your new data source)
+    setLoading(true);
+    setTimeout(() => {
+      setMembers(sampleMembers);
+      setLoading(false);
+    }, 1000);
   }, []);
 
   return (
