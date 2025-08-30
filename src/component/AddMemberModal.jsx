@@ -1,8 +1,6 @@
 // src/components/AddMemberModal.jsx
 import React, { useState } from "react";
 
-import { collection, addDoc } from "firebase/firestore";
-
 const AddMemberModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -21,7 +19,16 @@ const AddMemberModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = async () => {
     try {
-      await addDoc(collection(db, "teamMembers"), formData);
+      // TODO: Replace with your new data storage solution
+      console.log("Member data to be saved:", formData);
+      
+      // You can implement local storage, API call, or other storage method here
+      // Example with localStorage:
+      // const existingMembers = JSON.parse(localStorage.getItem('teamMembers') || '[]');
+      // const newMember = { ...formData, id: Date.now() };
+      // localStorage.setItem('teamMembers', JSON.stringify([...existingMembers, newMember]));
+      
+      alert("Member data logged to console. Implement your storage solution here.");
       onClose();
     } catch (err) {
       console.error("Error adding member: ", err);
