@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // ✅ fix import
 import Lenis from "@studio-freight/lenis";
 import Footer from "../component/Footer.jsx";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,8 +43,8 @@ const Home = () => {
         end: "top 10%",
         scrub: 2,
       },
-      x: 680,
-      y: 250,
+      x: "48vw",
+      y: "40vh",
       ease: "power1.out",
     });
 
@@ -54,8 +55,8 @@ const Home = () => {
         end: "top 0%",
         scrub: 2,
       },
-      x: -380,
-      y: 250,
+      x: "-27vw",
+      y: "38vh",
       ease: "power1.out",
     });
 
@@ -66,8 +67,8 @@ const Home = () => {
         end: "top 0%",
         scrub: 2,
       },
-      x: 180,
-      y: 500,
+      x: "12vw",
+      y: "76vh",
       ease: "power1.out",
     });
 
@@ -78,8 +79,8 @@ const Home = () => {
         end: "top 0%",
         scrub: 2,
       },
-      x: -500,
-      y: 500,
+      x: "-37vw",
+      y: "77vh",
       ease: "power1.out",
     });
 
@@ -163,7 +164,7 @@ const Home = () => {
       </div>
 
       {/* Section 5 */}
-      <div className="w-[100vw] h-screen pl-10 flex justify-start flex-col ">
+      <div className="w-[100vw] h-[50vh] pl-10 flex justify-start flex-col ">
         <p
           className="font-bold text-sm"
           style={{ fontFamily: "'Limelight', display" }}
@@ -177,6 +178,21 @@ const Home = () => {
           SHOWING UP
         </h1>
       </div>
+
+      <div className="w-screen h-[50vh] flex items-start justify-center ">
+        {" "}
+        <Link
+          to="/events"
+          className="relative z-[99] h-[7vh] inline-block px-6 py-3 text-white text-sm font-medium
+             rounded-2xl shadow-md bg-black
+             transition-all duration-300 ease-out hover:scale-110 hover:shadow-xl
+             hover:bg-white hover:text-black border border-black"
+          style={{ fontFamily: "'Mozilla Headline', sans-serif" }}
+        >
+          Let's Go →
+        </Link>
+      </div>
+
       <Footer />
     </div>
   );
