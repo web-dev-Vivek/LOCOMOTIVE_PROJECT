@@ -4,7 +4,7 @@ export async function postUserData(formData) {
       ...formData,
       skills: formData.skills.split(",").map((skill) => skill.trim()).filter(Boolean),
     };
-    const res = await fetch("http://localhost:3000/api/users", {
+    const res = await fetch("/api/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export async function postUserData(formData) {
 
 export async function getUserData() {
   try {
-    const res = await fetch('http://localhost:3000/api/users');
+    const res = await fetch('/api/users');
     if (!res.ok) throw new Error('Failed to fetch team members');
     return await res.json();
   } catch (err) {
