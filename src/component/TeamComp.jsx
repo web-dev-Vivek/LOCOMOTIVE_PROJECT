@@ -14,15 +14,13 @@ const TeamComp = ({ refresh }) => {
         setLoading(false);
       })
       .catch((err) => {
-        setError(err?.message || 'Failed to fetch team members');
+        setError(err?.message || "Failed to fetch team members");
         setLoading(false);
       });
   }, [refresh]);
 
   return (
     <div className="p-6 min-h-screen bg-white">
-      <h2 className="text-3xl font-bold text-center mb-6">Our Team</h2>
-
       {loading && <p className="text-center">Loading team members...</p>}
       {error && <p className="text-center text-red-500">{error}</p>}
 

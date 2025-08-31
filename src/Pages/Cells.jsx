@@ -42,7 +42,7 @@ const Cells = () => {
         </div>
 
         {/* Image */}
-        <div className="md:w-[47vw] flex justify-center items-end md:h-[125vh] px-4">
+        <div className="md:w-[47vw] flex justify-center items-end md:h-[100vh] px-4">
           <img
             className="w-full object-cover"
             src={Committee}

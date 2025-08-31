@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Navbar from "../component/Navbar";
 import AddMemberModal from "../component/AddMemberModal";
 import TeamComp from "../component/TeamComp";
+import HUB from "../assets/Hub.png";
 
 const Team = () => {
   const [showModal, setShowModal] = useState(false);
@@ -16,15 +17,22 @@ const Team = () => {
     <>
       <Navbar />
       <div className="p-6 mt-10">
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="text-4xl font-bold">Meet the Team</h1>
+        <div className="flex border-b-1 border-gray-500 justify-evenly items-center mb-4">
+          <div
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            className="text-7xl  flex justify-center items-center gap-2 font-bold mb-6 text-center text-black"
+          >
+            <img className="w-[8vw]" src={HUB} alt="" /> Hack's hub
+          </div>
           <button
             onClick={() => setShowModal(true)}
-            className="bg-blue-600 text-white px-4 py-2 rounded"
+            style={{ fontFamily: "'Limelight', display" }}
+            className="bg-yellow-500 hover:bg-yellow-400 hover:scale-[1.1] text-black font-bold rounded-full px-4 py-2 rounded"
           >
-            + Add Member
+            I'm in
           </button>
         </div>
+
         <TeamComp refresh={refresh} />
         <AddMemberModal
           isOpen={showModal}

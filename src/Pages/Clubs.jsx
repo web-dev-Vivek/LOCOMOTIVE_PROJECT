@@ -16,7 +16,6 @@ const Clubs = () => {
         start: "top 10%",
         end: "top -40%",
         scrub: 3,
-        markers: true,
       },
       y: 510,
       ease: "power1.out",
