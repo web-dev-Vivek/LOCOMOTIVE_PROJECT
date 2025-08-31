@@ -194,44 +194,74 @@ const Home = () => {
 
       {/* 📱 Tablet/Mobile View */}
       <div className="block md:hidden bg-white text-black overflow-x-hidden">
-        <div className="min-h-screen flex flex-col justify-center items-start px-4 text-left">
+        <div className="min-h-screen flex flex-col justify-center items-center px-4 text-left">
           <p
-            className="text-xs uppercase mb-2"
+            className="text-2xl uppercase mb-5"
             style={{ fontFamily: "'Oswald', sans-serif" }}
           >
             Make Memories, Make Future
           </p>
 
           <h1
-            className="text-3xl sm:text-4xl font-bold mb-4"
+            className="text-xl sm:text-4xl mb-4"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            PARTICIPATE IN EVENTS
+            PARTICIPATE IN
+          </h1>
+          <h1
+            className="text-5xl sm:text-4xl font-bold mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            EVENTS
           </h1>
 
           <h1
-            className="text-3xl sm:text-4xl font-bold mb-4"
+            className="text-xl sm:text-4xl mb-4"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            BUILD CONNECTIONS
+            BUILD
           </h1>
 
           <h1
-            className="text-3xl sm:text-4xl font-bold mb-4"
+            className="text-5xl sm:text-4xl font-bold mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            CONNECTIONS
+          </h1>
+          <h1
+            className="text-xl sm:text-4xl mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            TURNS INTO
+          </h1>
+
+          <h1
+            className="text-4xl sm:text-4xl font-bold mb-4"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
             COLLABORATIONS
           </h1>
+          <h1
+            className="text-xl sm:text-4xl mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            IGNITE
+          </h1>
 
           <h1
-            className="text-3xl sm:text-4xl font-bold mb-4"
+            className="text-5xl sm:text-4xl font-bold mb-4"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
             INNOVATION
           </h1>
-
           <h1
-            className="text-3xl sm:text-4xl font-bold mb-8"
+            className="text-xl sm:text-4xl mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          >
+            COMES WITH
+          </h1>
+          <h1
+            className="text-5xl sm:text-4xl font-bold mb-8"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
             SHOWING UP

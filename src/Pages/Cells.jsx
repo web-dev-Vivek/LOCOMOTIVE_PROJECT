@@ -34,12 +34,18 @@ const Cells = () => {
       <Navbar />
 
       {/* Title + Image Section */}
-      <div className="md:w-[100vw] justify-evenly flex md:h-[150vh] pt-30 flex-col md:flex-row">
+      <div className="md:w-[100vw] justify-evenly flex md:h-[150vh] md:pt-30 mt-10 flex-col md:flex-row">
         {/* Heading */}
         <div
           ref={Move1Ref}
           style={{ fontFamily: "'Playfair Display', serif" }}
-          className="md:w-[47vw] flex text-5xl md:text-8xl font-bold justify-start items-start md:h-[85vh] z-[99] px-4 pt-10"
+          className="md:w-[47vw] hidden md:block flex text-5xl md:text-8xl font-bold justify-start items-start md:h-[85vh] z-[99] px-4 pt-10"
+        >
+          COMMITTEE
+        </div>
+        <div
+          style={{ fontFamily: "'Playfair Display', serif" }}
+          className="md:w-[47vw] md:hidden block mb-5 md:mb-0 flex text-5xl md:text-8xl font-bold justify-start items-start md:h-[85vh] z-[99] px-4 pt-10"
         >
           COMMITTEE
         </div>

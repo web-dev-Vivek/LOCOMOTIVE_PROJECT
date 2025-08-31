@@ -1,52 +1,35 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import Navbar from "../component/Navbar";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import Club from "../assets/Club.jpg";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Clubs = () => {
-  const ClubRef = useRef(null);
-
-  useEffect(() => {
-    gsap.to(ClubRef.current, {
-      scrollTrigger: {
-        trigger: ClubRef.current,
-        start: "top 10%",
-        end: "top -40%",
-        scrub: 3,
-      },
-      y: 510,
-      ease: "power1.out",
-    });
-  }, []);
-
   return (
     <div
       style={{ backgroundColor: "#f2f7fa" }}
-      className="min-h-screen flex flex-col justify-center items-center "
+      className="md:min-h-screen flex flex-col justify-center items-center"
     >
       <Navbar />
-      <div className=" w-[95vw] border-b-1  border-gray h-screen mt-20 pb-10 flex items-center justify-between">
-        <div className="w-full h-full flex items-start justify-start ">
+
+      {/* Hero Section */}
+      <div className="w-[95vw] border-b-1 border-black md:h-screen mt-20 pb-10 flex flex-col md:flex-row items-center justify-between gap-8">
+        {/* Left Text */}
+        <div className="w-full md:w-1/2 flex justify-center md:justify-start">
           <h1
-            ref={ClubRef}
             style={{ fontFamily: "'Playfair Display', serif" }}
-            className="text-6xl md:text-9xl font-bold text-black"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-bold text-black"
           >
             CLUBS
           </h1>
         </div>
-        <div className="w-full h-full flex items-end justify-end ">
-          <img
-            className="w-[40vw] flex md:flex-col flex-row"
-            src={Club}
-            alt=""
-          />
+
+        {/* Right Image */}
+        <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+          <img className="w-full md:w-[40vw] " src={Club} alt="Clubs" />
         </div>
       </div>
-      <div className="w-screen h-screen "></div>
+
+      {/* Extra Section Placeholder */}
+      <div className="w-screen h-[50vh] md:h-screen"></div>
     </div>
   );
 };

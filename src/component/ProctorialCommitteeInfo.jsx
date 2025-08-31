@@ -24,7 +24,7 @@ const ProctorialCommitteeInfo = () => {
   }, []);
 
   return (
-    <div className="w-full px-6 md:px-20 py-20 flex justify-center items-center bg-white text-black">
+    <div className="w-full px-6 md:px-20 py-5 md:py-10  flex justify-center items-center bg-white text-black">
       <div
         ref={cardRef}
         className="w-full max-w-5xl border border-gray-300 rounded-xl shadow-xl p-8 md:p-14 bg-white/60 backdrop-blur-md space-y-10"
