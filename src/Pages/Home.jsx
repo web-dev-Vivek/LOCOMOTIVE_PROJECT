@@ -95,7 +95,7 @@ const Home = () => {
       {/* 💻 Laptop/Desktop View */}
       <div className="hidden md:block">
         {/* Section 1 */}
-        <div className="w-[100vw] pl-10 flex justify-start flex-col h-[100vh]">
+        <div className="w-[100vw]  pl-10 flex justify-end flex-col h-[100vh]">
           <p className="text-sm" style={{ fontFamily: "'Oswald', sans-serif" }}>
             Make Memories, Make future
           </p>
@@ -115,7 +115,7 @@ const Home = () => {
         </div>
 
         {/* Section 2 */}
-        <div className="w-[100vw] overflow-hidden flex justify-center items-end pr-10 flex-col h-[100vh]">
+        <div className="w-[100vw]  overflow-hidden flex justify-center items-end pr-10 flex-col h-[100vh]">
           <h1
             className="font-bold text-sm"
             style={{ fontFamily: "'Limelight', display" }}
@@ -132,7 +132,7 @@ const Home = () => {
         </div>
 
         {/* Section 3 */}
-        <div className="w-[100vw] h-screen pl-10 flex-col ">
+        <div className="w-[100vw]  h-screen pl-10 flex-col ">
           <p className="text-sm" style={{ fontFamily: "'Limelight', display" }}>
             TURN INTO
           </p>

@@ -73,16 +73,26 @@ function Events() {
       {/* Hero Section */}
       <div
         id="event"
-        className="min-h-screen mt-5 flex flex-col px-6 py-10 bg-white"
+        className="md:min-h-screen mt-5 flex flex-col px-6 py-10 bg-white"
       >
         <h1
           ref={MoveRef}
-          className="text-4xl md:text-9xl font-bold flex justify-end text-center"
+          className="text-4xl hidden md:block md:text-9xl font-bold flex justify-end text-center"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           Events
         </h1>
-        <img className="w-[40vw] h-[35vw]" src={Eventimg} alt="Events Header" />
+        <h1
+          className="text-4xl md:hidden block md:text-9xl font-bold flex justify-center text-center"
+          style={{ fontFamily: "'Playfair Display', serif" }}
+        >
+          Events
+        </h1>
+        <img
+          className="w-full md:w-[40vw] md:h-[35vw]"
+          src={Eventimg}
+          alt="Events Header"
+        />
       </div>
 
       {/* Filter Buttons */}
@@ -91,10 +101,11 @@ function Events() {
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-4 py-1.5 rounded-full border text-sm font-medium transition-all duration-200 ${selectedCategory === cat
+            className={`px-4 py-1.5 rounded-full border text-sm font-medium transition-all duration-200 ${
+              selectedCategory === cat
                 ? "bg-black text-white border-black"
                 : "bg-white text-black border-gray-300 hover:bg-gray-400 hover:text-white hover:border-none hover:scale-[1.1]"
-              }`}
+            }`}
           >
             {cat}
           </button>
