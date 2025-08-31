@@ -34,7 +34,7 @@ const TeamComp = ({ refresh }) => {
             key={member.id}
             className="bg-[#f2f7fa] p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300"
           >
-            <h3 className="text-xl font-semibold text-[#2b3a42]">
+            <h3 className="text-xl mb-3 flex justify-center font-semibold text-[#2b3a42]">
               {member.name}
             </h3>
             <p>

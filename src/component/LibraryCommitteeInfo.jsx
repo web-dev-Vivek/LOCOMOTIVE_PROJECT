@@ -4,19 +4,19 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CommitteeInfo = () => {
+const LibraryCommitteeInfo = () => {
   const cardRef = useRef(null);
 
   useEffect(() => {
     gsap.from(cardRef.current, {
       scrollTrigger: {
         trigger: cardRef.current,
-        start: "top 80%", // when card is 80% from top of viewport
-        end: " top 20%",
+        start: "top 80%",
+        end: "top 20%",
         toggleActions: "play none none none",
         scrub: 3,
       },
-      x: 100, // animate from right
+      x: -100, // animate from left
       opacity: 0,
       duration: 1,
       ease: "power3.out",
@@ -32,10 +32,10 @@ const CommitteeInfo = () => {
         {/* Section Heading */}
         <div className="space-y-2">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight border-b-2 border-black inline-block pb-1">
-            1. Internal Complaint Committee
+            2. Library Committee (2025–26)
           </h2>
           <p className="italic text-gray-600 text-lg">
-            (Prevention of Sexual Harassment - POSH)
+            Satyug Darshan Institute of Engineering & Technology
           </p>
         </div>
 
@@ -45,53 +45,53 @@ const CommitteeInfo = () => {
             📌 Objectives:
           </h3>
           <ul className="list-disc list-inside text-gray-700">
-            <li>Ensure a safe, respectful environment for women.</li>
-            <li>Prevent and address sexual harassment on campus.</li>
+            <li>Oversee and enhance the functioning of the library.</li>
+            <li>
+              Ensure resources are effectively utilized by students & staff.
+            </li>
           </ul>
         </div>
 
-        {/* Harassment Types */}
+        {/* Members */}
         <div className="space-y-2">
           <h3 className="text-xl font-semibold text-gray-900">
-            ⚠️ Harassment Includes:
+            👥 Committee Members:
           </h3>
           <ul className="list-disc list-inside text-gray-700">
-            <li>Unwelcome touch or remarks</li>
-            <li>Threats for sexual favours</li>
-            <li>Public insults or spreading rumors</li>
+            <li>Dr. S. S. Mudgal – Prof., AS&H (Prof. In charge)</li>
+            <li>Ms. Sanchita Khantwal – AP, DMS (Member)</li>
+            <li>Ms. Rachna Shrivastava – AP, DCSE (Member)</li>
+            <li>Dr. Mansi Rastogi – AP, AS&H (Member)</li>
+            <li>Mr. Baljeet Singh – Librarian (Ex-officio)</li>
           </ul>
         </div>
 
-        {/* Actions */}
+        {/* Notice Details */}
         <div className="space-y-2">
           <h3 className="text-xl font-semibold text-gray-900">
-            🛑 Strict Actions Will Be Taken
+            📅 Notice Info:
           </h3>
           <p className="text-gray-700">
-            Against anyone found guilty, including possible legal action.
+            Notice No: <strong>SDIET/Notice/2025-26/019</strong> <br />
+            Date: <strong>31st July, 2025</strong> <br />
+            Issued by: <strong>Dr. Shailendra Kumar, Principal</strong>
           </p>
-        </div>
-
-        {/* Helpline */}
-        <div className="space-y-2">
-          <h3 className="text-xl font-semibold text-gray-900">☎️ Helpline:</h3>
-          <p className="font-bold text-lg text-black">+91-7827755966</p>
         </div>
 
         {/* Download Button */}
         <div className="space-y-1">
           <h3 className="text-xl font-semibold text-gray-900">
-            📄 Full Committee PDF:
+            📄 Full Notice PDF:
           </h3>
           <a
-            href="/committee.pdf"
+            href="/Library Committee for Academic Year 2025-26.pdf"
             download
             className="inline-block px-6 py-3 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition duration-300"
           >
             🔽 Download PDF
           </a>
           <p className="text-sm text-gray-500 mt-1">
-            (Includes member list, rules, and disciplinary process)
+            (Includes official notice and full committee details)
           </p>
         </div>
       </div>
@@ -99,4 +99,4 @@ const CommitteeInfo = () => {
   );
 };
 
-export default CommitteeInfo;
+export default LibraryCommitteeInfo;

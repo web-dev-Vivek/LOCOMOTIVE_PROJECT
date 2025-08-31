@@ -3,6 +3,9 @@ import Navbar from "../component/Navbar.jsx";
 import Footer from "../component/Footer.jsx";
 import Committee from "../assets/Committee.jpg";
 import CommitteeInfo from "../component/CommitteeInfo.jsx";
+import LIB from "../component/LibraryCommitteeInfo.jsx";
+import PROTOCOL from "../component/ProctorialCommitteeInfo.jsx";
+import SCST from "../component/ScstCommitteeInfo";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -53,6 +56,9 @@ const Cells = () => {
 
       {/* Committee Info Section */}
       <CommitteeInfo />
+      <LIB />
+      <PROTOCOL />
+      <SCST />
 
       <Footer />
     </div>
