@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
-import Navbar from "../component/Navbar";
+import Navbar from "../component/Navbar.jsx";
 import Footer from "../component/Footer.jsx";
 import Committee from "../assets/Committee.jpg";
-import CommitteeInfo from "../component/CommitteeInfo";
+import CommitteeInfo from "../component/CommitteeInfo.jsx";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
