@@ -17,12 +17,12 @@ const Team = () => {
     <>
       <Navbar />
       <div className="p-6 mt-10">
-        <div className="flex border-b-1 border-gray-500 justify-evenly items-center mb-4">
+        <div className="flex flex-col border-b-1 border-gray-500 justify-evenly items-center mb-4 md:pb-0 pb-6 ">
           <div
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
-            className="text-7xl  flex justify-center items-center gap-2 font-bold mb-6 text-center text-black"
+            className="text-5xl md:text-7xl  flex justify-center items-center gap-2 font-bold mb-6 text-center text-black"
           >
-            <img className="w-[8vw]" src={HUB} alt="" /> Hack's hub
+            <img className="md:w-[8vw] w-[60px]" src={HUB} alt="" /> Hack's hub
           </div>
           <button
             onClick={() => setShowModal(true)}
