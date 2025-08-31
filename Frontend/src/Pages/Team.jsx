@@ -6,6 +6,11 @@ import TeamComp from "../component/TeamComp";
 
 const Team = () => {
   const [showModal, setShowModal] = useState(false);
+  const [refresh, setRefresh] = useState(false);
+
+  const handleMemberAdded = () => {
+    setRefresh((r) => !r);
+  };
 
   return (
     <>
@@ -20,10 +25,11 @@ const Team = () => {
             + Add Member
           </button>
         </div>
-        <TeamComp />
+        <TeamComp refresh={refresh} />
         <AddMemberModal
           isOpen={showModal}
           onClose={() => setShowModal(false)}
+          onMemberAdded={handleMemberAdded}
         />
       </div>
     </>

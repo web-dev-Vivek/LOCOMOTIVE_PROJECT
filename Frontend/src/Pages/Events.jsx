@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
-import Navbar from "../component/Navbar";
+import Navbar from "../component/Navbar.jsx";
 import Footer from "../component/Footer.jsx";
-import EventCard from "../component/EventCard";
+import EventCard from "../component/EventCard.jsx";
 import eventsData from "../data/eventsData.js";
 import Eventimg from "../assets/Event.jpg";
 
@@ -91,11 +91,10 @@ function Events() {
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-4 py-1.5 rounded-full border text-sm font-medium transition-all duration-200 ${
-              selectedCategory === cat
+            className={`px-4 py-1.5 rounded-full border text-sm font-medium transition-all duration-200 ${selectedCategory === cat
                 ? "bg-black text-white border-black"
                 : "bg-white text-black border-gray-300 hover:bg-gray-400 hover:text-white hover:border-none hover:scale-[1.1]"
-            }`}
+              }`}
           >
             {cat}
           </button>

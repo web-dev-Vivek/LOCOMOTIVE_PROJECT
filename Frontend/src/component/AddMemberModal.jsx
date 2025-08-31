@@ -1,12 +1,12 @@
-// src/components/AddMemberModal.jsx
 import React, { useState } from "react";
+import { postUserData } from "../api";
 
-const AddMemberModal = ({ isOpen, onClose }) => {
+const AddMemberModal = ({ isOpen, onClose, onMemberAdded }) => {
   const [formData, setFormData] = useState({
     name: "",
-    rollno: "",
-    gmail: "",
-    whatsapp: "",
+    rollNo: "",
+    email: "",
+    phoneNo: "",
     skills: "",
   });
 
@@ -18,20 +18,13 @@ const AddMemberModal = ({ isOpen, onClose }) => {
   };
 
   const handleSubmit = async () => {
-    try {
-      // TODO: Replace with your new data storage solution
-      console.log("Member data to be saved:", formData);
-      
-      // You can implement local storage, API call, or other storage method here
-      // Example with localStorage:
-      // const existingMembers = JSON.parse(localStorage.getItem('teamMembers') || '[]');
-      // const newMember = { ...formData, id: Date.now() };
-      // localStorage.setItem('teamMembers', JSON.stringify([...existingMembers, newMember]));
-      
-      alert("Member data logged to console. Implement your storage solution here.");
+    const success = await postUserData(formData);
+    if (success) {
+      alert("Member added successfully!");
+      onMemberAdded();
       onClose();
-    } catch (err) {
-      console.error("Error adding member: ", err);
+    } else {
+      alert("Failed to add member");
     }
   };
 
@@ -48,19 +41,19 @@ const AddMemberModal = ({ isOpen, onClose }) => {
           className="mb-2 w-full border p-2"
         />
         <input
-          name="rollno"
+          name="rollNo"
           onChange={handleChange}
           placeholder="College Roll No."
           className="mb-2 w-full border p-2"
         />
         <input
-          name="gmail"
+          name="email"
           onChange={handleChange}
           placeholder="Gmail"
           className="mb-2 w-full border p-2"
         />
         <input
-          name="whatsapp"
+          name="phoneNo"
           onChange={handleChange}
           placeholder="WhatsApp No."
           className="mb-2 w-full border p-2"

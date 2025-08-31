@@ -1,47 +1,23 @@
-// src/components/TeamComp.jsx
 import React, { useEffect, useState } from "react";
+import { getUserData } from "../api.js";
 
-const TeamComp = () => {
+const TeamComp = ({ refresh }) => {
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Sample static data to replace Firebase data
-  const sampleMembers = [
-    {
-      id: 1,
-      name: "John Doe",
-      rollno: "2021001",
-      gmail: "john.doe@example.com",
-      whatsapp: "+91-9876543210",
-      skills: ["React", "JavaScript", "Node.js"]
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      rollno: "2021002",
-      gmail: "jane.smith@example.com",
-      whatsapp: "+91-9876543211",
-      skills: ["Python", "Machine Learning", "Data Science"]
-    },
-    {
-      id: 3,
-      name: "Mike Johnson",
-      rollno: "2021003",
-      gmail: "mike.johnson@example.com",
-      whatsapp: "+91-9876543212",
-      skills: ["Java", "Spring Boot", "Microservices"]
-    }
-  ];
-
   useEffect(() => {
-    // Simulate loading data (replace with your new data source)
     setLoading(true);
-    setTimeout(() => {
-      setMembers(sampleMembers);
-      setLoading(false);
-    }, 1000);
-  }, []);
+    getUserData()
+      .then((data) => {
+        setMembers(data || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err?.message || 'Failed to fetch team members');
+        setLoading(false);
+      });
+  }, [refresh]);
 
   return (
     <div className="p-6 min-h-screen bg-white">
@@ -64,13 +40,13 @@ const TeamComp = () => {
               {member.name}
             </h3>
             <p>
-              <strong>Roll No:</strong> {member.rollno}
+              <strong>Roll No:</strong> {member.rollNo}
             </p>
             <p>
-              <strong>Gmail:</strong> {member.gmail}
+              <strong>Gmail:</strong> {member.email}
             </p>
             <p>
-              <strong>WhatsApp:</strong> {member.whatsapp}
+              <strong>WhatsApp:</strong> {member.phoneNo}
             </p>
             <p>
               <strong>Skills:</strong>{" "}
