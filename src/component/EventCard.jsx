@@ -4,7 +4,6 @@ const EventCard = ({
   imageUrl,
   title,
   date,
-  organizer,
   prize,
   registerLink,
   isVerified,
@@ -28,8 +27,6 @@ const EventCard = ({
             {isVerified && <span className="text-green-600 text-base">✔</span>}
           </h3>
         </div>
-
-        <p className="text-xs text-gray-500 mb-3">ORGANIZER:- {organizer}</p>
 
         <div className="flex justify-between items-center text-sm text-gray-800">
           <div className="flex flex-col gap-1 text-sm">
