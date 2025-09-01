@@ -27,9 +27,9 @@ const Team = () => {
           <button
             onClick={() => setShowModal(true)}
             style={{ fontFamily: "'Limelight', display" }}
-            className="bg-yellow-500 hover:bg-yellow-400 hover:scale-[1.1] text-black font-bold rounded-full px-4 py-2 rounded"
+            className="bg-black text-white hover:text-black hover:bg-yellow-400 hover:scale-[1.1] text-black font-bold rounded-full px-4 py-2 rounded"
           >
-            I'm in
+            Enroll now
           </button>
         </div>
 
