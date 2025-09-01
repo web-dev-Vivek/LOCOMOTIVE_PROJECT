@@ -125,7 +125,7 @@ const AddMemberModal = ({ isOpen, onClose, onMemberAdded }) => {
               name="skills"
               value={formData.skills}
               onChange={handleChange}
-              placeholder="React ,TailwindCss , ...."
+              placeholder="Enter your skills. use comma to seperate..."
               className="w-full border border-black/30 rounded-lg px-3 py-2
                          focus:outline-none focus:ring-2 focus:ring-black
                          placeholder-gray-500"
