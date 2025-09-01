@@ -77,13 +77,13 @@ function Events() {
       >
         <h1
           ref={MoveRef}
-          className="text-4xl hidden md:block md:text-9xl font-bold flex justify-end text-center"
+          className="text-4xl hidden md:block md:text-9xl font-bold text-end"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           Events
         </h1>
         <h1
-          className="text-4xl md:hidden block md:text-9xl font-bold flex justify-center text-center"
+          className="text-4xl md:hidden block md:text-9xl font-bold flex justify-center text-center "
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           Events
