@@ -193,7 +193,7 @@ const Home = () => {
       </div>
 
       {/* 📱 Tablet/Mobile View */}
-      <div className="block md:hidden bg-white text-black overflow-x-hidden">
+      <div className="block md:hidden mt-20 bg-white text-black overflow-x-hidden">
         <div className="min-h-screen flex flex-col justify-center items-center px-4 text-left">
           <p
             className="text-2xl uppercase mb-5"
