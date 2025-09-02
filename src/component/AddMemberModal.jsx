@@ -12,6 +12,7 @@ const AddMemberModal = ({ isOpen, onClose, onMemberAdded }) => {
   });
 
   const [error, setError] = useState(false); // shake ke liye
+  const [loading, setLoading] = useState(false); // loading state
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -35,7 +36,10 @@ const AddMemberModal = ({ isOpen, onClose, onMemberAdded }) => {
       return;
     }
 
+    setLoading(true); // start loading
     const success = await postUserData(formData);
+    setLoading(false); // stop loading
+
     if (success) {
       alert("Member added successfully!");
       onMemberAdded();
@@ -143,11 +147,17 @@ const AddMemberModal = ({ isOpen, onClose, onMemberAdded }) => {
             </button>
             <button
               onClick={handleSubmit}
-              className={`px-5 py-2 rounded-lg bg-black text-white
-                          hover:bg-white hover:text-black border border-black
-                          transition-all ${error ? "shake" : ""}`}
+              disabled={loading}
+              className={`px-5 py-2 rounded-lg bg-black text-white border border-black
+                          transition-transform duration-200
+                          ${error ? "shake" : ""}
+                          ${
+                            loading
+                              ? "scale-95 opacity-80 cursor-not-allowed"
+                              : "hover:scale-105 hover:bg-white hover:text-black"
+                          }`}
             >
-              Add
+              {loading ? "Adding..." : "Add"}
             </button>
           </div>
         </div>
