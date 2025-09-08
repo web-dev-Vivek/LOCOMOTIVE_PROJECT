@@ -16,7 +16,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="flex relative justify-center">
+    <div className="flex overflow-x-hidden relative justify-center">
       {/* Desktop Navbar */}
       <div className="hidden md:flex md:w-[100vw] fixed top-0 z-[99] md:h-[10vh] justify-evenly gap-40 items-center">
         {navLinks.map((link) => (

@@ -6,7 +6,7 @@ const Clubs = () => {
   return (
     <div
       style={{ backgroundColor: "#f2f7fa" }}
-      className="md:min-h-screen flex flex-col justify-center items-center"
+      className="md:min-h-screen overflow-x-hidden flex flex-col justify-center items-center"
     >
       <Navbar />
 

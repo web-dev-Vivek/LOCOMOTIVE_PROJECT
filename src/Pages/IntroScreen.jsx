@@ -39,7 +39,7 @@ const IntroScreen = ({ onAnimationComplete }) => {
   return (
     <div
       ref={introRef}
-      className="fixed top-0 left-0 w-full h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 z-50 flex flex-col items-center justify-center"
+      className="fixed top-0 overflow-x-hidden left-0 w-full h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 z-50 flex flex-col items-center justify-center"
     >
       <div className="text-center"></div>
 

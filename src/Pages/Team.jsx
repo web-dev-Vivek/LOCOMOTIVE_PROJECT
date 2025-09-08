@@ -16,7 +16,7 @@ const Team = () => {
   return (
     <>
       <Navbar />
-      <div className="p-6 mt-10">
+      <div className="p-6 mt-10 overflow-x-hidden">
         <div className="flex md:flex-row flex-col border-b-1 border-gray-500 justify-evenly items-center mb-4 md:pb-0 pb-6 ">
           <div
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
