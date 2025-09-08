@@ -73,7 +73,7 @@ function Events() {
       {/* Hero Section */}
       <div
         id="event"
-        className="md:min-h-screen mt-5 flex flex-col px-6 py-10 bg-white"
+        className="md:min-h-screen overflow-x-hidden mt-5 flex flex-col px-6 py-10 bg-white"
       >
         <h1
           ref={MoveRef}
