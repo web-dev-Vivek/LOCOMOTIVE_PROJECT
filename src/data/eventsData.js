@@ -48,14 +48,14 @@ const events = [
   },
   {
     id: 5,
-    title: "Biz Tech Ideathon 2025 ",
+    title: " HackVriksh 2025 - Code.Create.Cultivate ",
     category: "Hackathon",
-    date: "2025/09/05",
-    prize: "₹37000",
+    date: "2025/09/29",
+    prize: "",
     registerLink:
-      "https://unstop.com/hackathons/biz-tech-ideathon-2025-new-delhi-institute-of-management-ndim-new-delhi-1545323",
+      "https://unstop.com/hackathons/hackvriksh-2025-codecreatecultivate-dronacharya-group-of-institutions-dgi-greater-noida-1533418",
     imageUrl:
-      "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-68ad8f2eee5f0_biz_tech_ideathon_2025.png?d=200x200",
+      "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6899e623ca026_hack_vriksh_logo.jpg?d=200x200",
     isVerified: true,
   },
   {
