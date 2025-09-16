@@ -24,14 +24,14 @@ const events = [
   },
   {
     id: 3,
-    title: " Zero Day Apocalypse",
+    title: " Hacker's Premier League",
     category: "Hackathon",
-    date: "2025/09/09",
-    prize: "₹100000",
+    date: "2025/09/27",
+    prize: "₹65000",
     registerLink:
-      "https://unstop.com/hackathons/zero-day-apocalypse-shunya-netaji-subhas-university-of-technology-nsut-delhi-1549448",
+      "https://unstop.com/hackathons/hackers-premier-league-guru-gobind-singh-indraprastha-university-ggsipu-delhi-1544497",
     imageUrl:
-      "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-68b418bd89e02_0_day_apo_logo_.png?d=200x200",
+      "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-68a7535a54730_hpl.jpeg.jpg?d=200x200",
     isVerified: true,
   },
   {
