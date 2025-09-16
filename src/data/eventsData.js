@@ -51,7 +51,6 @@ const events = [
     title: " HackVriksh 2025 - Code.Create.Cultivate ",
     category: "Hackathon",
     date: "2025/09/29",
-    prize: "",
     registerLink:
       "https://unstop.com/hackathons/hackvriksh-2025-codecreatecultivate-dronacharya-group-of-institutions-dgi-greater-noida-1533418",
     imageUrl:
