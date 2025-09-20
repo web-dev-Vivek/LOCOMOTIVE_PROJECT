@@ -77,7 +77,7 @@ function Events() {
       >
         <h1
           ref={MoveRef}
-          className="text-4xl / /7+8hidden md:block md:text-9xl font-bold text-end"
+          className="text-4xl hidden md:block md:text-9xl font-bold text-end"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           Events
