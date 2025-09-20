@@ -11,15 +11,15 @@ import SignIn from "./Pages/SignIn.jsx";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/Home" element={<Home />} />
       <Route path="/Events" element={<Events />} />
       <Route path="/Team" element={<Team />} />
       <Route path="/Announcement" element={<Announcement />} />
       <Route path="/Cells" element={<Cells />} />
 
       {/* Clerk Auth Routes */}
-      <Route path="/Login" element={<SignIn />} />
-      <Route path="/Signup" element={<Signup />} />
+      <Route path="/SignIn" element={<SignIn />} />
+      <Route path="/" element={<Signup />} />
     </Routes>
   );
 }

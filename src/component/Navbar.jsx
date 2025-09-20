@@ -64,6 +64,7 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
+          <UserButton />
         </nav>
       </div>
 
