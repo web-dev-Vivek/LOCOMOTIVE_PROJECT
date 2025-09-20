@@ -1,27 +1,26 @@
-// src/App.js
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
-// Pages
 import Home from "./Pages/Home";
 import Team from "./Pages/Team";
 import Announcement from "./Pages/Announcement";
-import Clubs from "./Pages/Clubs";
 import Cells from "./Pages/Cells";
 import Events from "./Pages/Events";
+import Signup from "./Pages/Signup.jsx";
+import SignIn from "./Pages/SignIn.jsx";
 
 function App() {
   return (
-    <div className="relative">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/announcement" element={<Announcement />} />
-        <Route path="/clubs" element={<Clubs />} />
-        <Route path="/cells" element={<Cells />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/Events" element={<Events />} />
+      <Route path="/Team" element={<Team />} />
+      <Route path="/Announcement" element={<Announcement />} />
+      <Route path="/Cells" element={<Cells />} />
+
+      {/* Clerk Auth Routes */}
+      <Route path="/Login" element={<SignIn />} />
+      <Route path="/Signup" element={<Signup />} />
+    </Routes>
   );
 }
 

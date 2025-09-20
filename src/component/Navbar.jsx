@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { X, Menu } from "lucide-react"; // icons
+import { UserButton, UserProfile } from "@clerk/clerk-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,6 @@ const Navbar = () => {
     { name: "Events", path: "/events" },
     { name: "Team", path: "/team" },
     { name: "Announcement", path: "/announcement" },
-    { name: "Our Clubs", path: "/clubs" },
     { name: "Committee", path: "/cells" },
   ];
 
@@ -29,6 +29,7 @@ const Navbar = () => {
             {link.name}
           </Link>
         ))}
+        <UserButton />
       </div>
 
       {/* Mobile Navbar */}
