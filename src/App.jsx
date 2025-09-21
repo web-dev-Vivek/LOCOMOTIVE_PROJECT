@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Pages/Home";
 import Team from "./Pages/Team";
 import Announcement from "./Pages/Announcement";
@@ -8,18 +8,56 @@ import Events from "./Pages/Events";
 import Signup from "./Pages/Signup.jsx";
 import SignIn from "./Pages/SignIn.jsx";
 
+import ProtectedRoute from "./component/ProtectedRoute";
+
 function App() {
   return (
     <Routes>
-      <Route path="/Home" element={<Home />} />
-      <Route path="/Events" element={<Events />} />
-      <Route path="/Team" element={<Team />} />
-      <Route path="/Announcement" element={<Announcement />} />
-      <Route path="/Cells" element={<Cells />} />
+      <Route
+        path="/Home"
+        element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/Events"
+        element={
+          <ProtectedRoute>
+            <Events />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/Team"
+        element={
+          <ProtectedRoute>
+            <Team />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/Announcement"
+        element={
+          <ProtectedRoute>
+            <Announcement />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/Cells"
+        element={
+          <ProtectedRoute>
+            <Cells />
+          </ProtectedRoute>
+        }
+      />
 
       {/* Clerk Auth Routes */}
       <Route path="/SignIn" element={<SignIn />} />
       <Route path="/" element={<Signup />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
