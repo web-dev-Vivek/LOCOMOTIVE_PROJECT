@@ -1,23 +1,16 @@
 // src/main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
-import { BrowserRouter } from "react-router-dom";
-import { ClerkProvider } from "@clerk/clerk-react";
 import "./index.css";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
 
-const clerkKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-if (!clerkKey) {
-  throw new Error("Missing VITE_CLERK_PUBLISHABLE_KEY in .env");
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(
+root.render(
   <React.StrictMode>
-    <ClerkProvider publishableKey={clerkKey}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ClerkProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );

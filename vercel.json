@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/*.js": {
+      "maxDuration": 10
+    }
+  },
+  "env": {
+    "MONGO_URI": "@mongo_uri"
+  }
+}
