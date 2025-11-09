@@ -11,7 +11,8 @@ function Signin() {
           },
         }}
         signUpUrl="/sign-up"
-        redirectUrl="/Team"
+        afterSignInUrl="/Team"
+        afterSignUpUrl="/Team"
       />
     </div>
   );
