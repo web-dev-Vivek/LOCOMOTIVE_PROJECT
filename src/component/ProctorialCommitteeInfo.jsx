@@ -1,34 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import React from "react";
 
 const ProctorialCommitteeInfo = () => {
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    gsap.from(cardRef.current, {
-      scrollTrigger: {
-        trigger: cardRef.current,
-        start: "top 80%",
-        end: "top 20%",
-        toggleActions: "play none none none",
-        scrub: 3,
-      },
-      y: 100, // animate from bottom
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out",
-    });
-  }, []);
-
   return (
     <div className="w-full px-6 md:px-20 py-5 md:py-10  flex justify-center items-center bg-white text-black">
-      <div
-        ref={cardRef}
-        className="w-full max-w-5xl border border-gray-300 rounded-xl shadow-xl p-8 md:p-14 bg-white/60 backdrop-blur-md space-y-10"
-      >
+      <div className="w-full max-w-5xl border border-gray-300 rounded-xl shadow-xl p-8 md:p-14 bg-white/60 backdrop-blur-md space-y-10">
         {/* Section Heading */}
         <div className="space-y-2">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight border-b-2 border-black inline-block pb-1">

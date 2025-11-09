@@ -17,16 +17,16 @@ export default async function handler(req, res) {
 
       // Validate required fields
       if (!name || !rollNo || !whatsapp || !skills) {
-        return res.status(400).json({ 
-          error: "Missing required fields: name, rollNo, whatsapp, skills" 
+        return res.status(400).json({
+          error: "Missing required fields: name, rollNo, whatsapp, skills",
         });
       }
 
       // Check if user with this rollNo already exists
       const existingUser = await User.findOne({ rollNo });
       if (existingUser) {
-        return res.status(400).json({ 
-          error: "User with this roll number already exists" 
+        return res.status(400).json({
+          error: "User with this roll number already exists",
         });
       }
 
@@ -35,7 +35,12 @@ export default async function handler(req, res) {
         name,
         rollNo,
         whatsapp,
-        skills: Array.isArray(skills) ? skills : skills.split(",").map(s => s.trim()).filter(Boolean)
+        skills: Array.isArray(skills)
+          ? skills
+          : skills
+              .split(",")
+              .map((s) => s.trim())
+              .filter(Boolean),
       });
 
       const savedUser = await newUser.save();
@@ -44,27 +49,27 @@ export default async function handler(req, res) {
 
     // Method not allowed
     return res.status(405).json({ error: "Method not allowed" });
-
   } catch (error) {
     console.error("API Error:", error);
-    
+
     // Handle duplicate key error
     if (error.code === 11000) {
-      return res.status(400).json({ 
-        error: "User with this roll number already exists" 
+      return res.status(400).json({
+        error: "User with this roll number already exists",
       });
     }
 
     // Handle validation errors
     if (error.name === "ValidationError") {
-      return res.status(400).json({ 
-        error: error.message 
+      return res.status(400).json({
+        error: error.message,
       });
     }
 
-    return res.status(500).json({ 
+    return res.status(500).json({
       error: "Internal server error",
-      details: process.env.NODE_ENV === "development" ? error.message : undefined
+      details:
+        process.env.NODE_ENV === "development" ? error.message : undefined,
     });
   }
 }
