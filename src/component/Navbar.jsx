@@ -1,12 +1,14 @@
 // src/components/Navbar.jsx
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { X, Menu } from "lucide-react";
+import { X, Menu, User, LogOut } from "lucide-react";
+import { useAuth, UserButton } from "@clerk/clerk-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { isSignedIn, isLoaded } = useAuth();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -31,8 +33,8 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/20 backdrop-blur-lg shadow-lg border-b border-gray-200/20"
-          : "bg-white/20 backdrop-blur-lg"
+          ? "bg-white/80 backdrop-blur-md shadow-lg border-b border-gray-200/20"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,51 +48,94 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex space-x-8">
-            <li>
-              <Link
-                to="/Home"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/Events"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
-              >
-                Events
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/Team"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
-              >
-                Team
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/Announcement"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
-              >
-                Announcements
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/Cells"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
-              >
-                Cells
-              </Link>
-            </li>
-          </ul>
+          <div className="hidden md:flex items-center space-x-8">
+            <ul className="flex space-x-8">
+              <li>
+                <Link
+                  to="/Home"
+                  className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/Events"
+                  className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
+                >
+                  Events
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/Team"
+                  className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
+                >
+                  Team
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/Announcement"
+                  className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
+                >
+                  Announcements
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/Cells"
+                  className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium"
+                >
+                  Cells
+                </Link>
+              </li>
+            </ul>
+
+            {/* Auth Section */}
+            <div className="flex items-center space-x-4">
+              {isLoaded && (
+                <>
+                  {isSignedIn ? (
+                    <UserButton
+                      appearance={{
+                        elements: {
+                          avatarBox: "w-8 h-8",
+                        },
+                      }}
+                    />
+                  ) : (
+                    <div className="flex items-center space-x-2">
+                      <Link
+                        to="/sign-in"
+                        className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium px-3 py-1 rounded-md hover:bg-blue-50"
+                      >
+                        Sign In
+                      </Link>
+                      <Link
+                        to="/sign-up"
+                        className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300 font-medium"
+                      >
+                        Sign Up
+                      </Link>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            {isLoaded && isSignedIn && (
+              <UserButton
+                appearance={{
+                  elements: {
+                    avatarBox: "w-8 h-8",
+                  },
+                }}
+              />
+            )}
             <button
               onClick={toggleMenu}
               className="text-gray-700 hover:text-blue-600 transition-colors duration-300 p-2"
@@ -105,7 +150,7 @@ const Navbar = () => {
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${
             isMenuOpen
-              ? "max-h-80 opacity-100"
+              ? "max-h-96 opacity-100"
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
         >
@@ -146,6 +191,26 @@ const Navbar = () => {
               >
                 Cells
               </Link>
+
+              {/* Mobile Auth Section */}
+              {isLoaded && !isSignedIn && (
+                <div className="border-t pt-4 space-y-2">
+                  <Link
+                    to="/sign-in"
+                    onClick={toggleMenu}
+                    className="block text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium py-2 px-4 rounded-lg hover:bg-blue-50"
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    to="/sign-up"
+                    onClick={toggleMenu}
+                    className="block bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 text-center"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
