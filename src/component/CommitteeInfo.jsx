@@ -47,12 +47,6 @@ const CommitteeInfo = () => {
           </p>
         </div>
 
-        {/* Helpline */}
-        <div className="space-y-2">
-          <h3 className="text-xl font-semibold text-gray-900">☎️ Helpline:</h3>
-          <p className="font-bold text-lg text-black">+91-7827755966</p>
-        </div>
-
         {/* Download Button */}
         <div className="space-y-1">
           <h3 className="text-xl font-semibold text-gray-900">

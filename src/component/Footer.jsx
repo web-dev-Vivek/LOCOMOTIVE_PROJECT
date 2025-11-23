@@ -22,11 +22,10 @@ const Footer = () => {
           </h3>
           <ul className="space-y-2 text-gray-700 text-sm">
             {[
-              ["#events", "Upcoming Events"],
-              ["#clubs", "Student Clubs"],
-              ["#hackathons", "Hackathons"],
-              ["#about", "About Us"],
-              ["#contact", "Contact"],
+              ["/Events", "Upcoming Events"],
+              ["/Cells", "College Cells"],
+              ["/Team", "Teams"],
+              ["/Announcement", "Announcement"],
             ].map(([href, label], i) => (
               <li key={i}>
                 <a

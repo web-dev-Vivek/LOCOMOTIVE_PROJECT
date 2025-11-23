@@ -42,9 +42,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors duration-300"
+            className="text-5xl font-bold text-gray-900 font-['Cormorant_Garamond'] hover:text-blue-600 transition-colors duration-300"
           >
-            LOCOMOTIVE
+            ENTER
           </Link>
 
           {/* Desktop Menu */}
